@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday ! 🎉</title>
+    <title>Special Interactive Card</title>
     <style>
         * {
             margin: 0;
@@ -17,12 +17,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #060913;
+            background: #080c09;
             overflow: hidden;
             position: relative;
         }
 
-        /* Premium Dynamic Background Mesh */
+        /* Dynamic Glow Mesh */
         .bg-mesh {
             position: absolute;
             width: 100%;
@@ -33,22 +33,22 @@
         .glow-circle {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.45;
-            animation: floatBackground 15s infinite alternate ease-in-out;
+            filter: blur(110px);
+            opacity: 0.55;
+            animation: floatBackground 12s infinite alternate ease-in-out;
         }
-        .glow-1 { width: 450px; height: 450px; background: #ff007f; top: -10%; left: -10%; }
-        .glow-2 { width: 550px; height: 550px; background: #7928ca; bottom: -20%; right: -10%; animation-delay: -4s; }
-        .glow-3 { width: 350px; height: 350px; background: #00dfd8; top: 35%; left: 75%; animation-delay: -7s; }
+        .glow-1 { width: 450px; height: 450px; background: #e11d48; top: -10%; left: -10%; }
+        .glow-2 { width: 550px; height: 550px; background: #16a34a; bottom: -20%; right: -10%; animation-delay: -4s; }
+        .glow-3 { width: 350px; height: 350px; background: #22c55e; top: 35%; left: 75%; animation-delay: -7s; }
 
-        /* Ultra-Attractive Welcome/Autoplay Overlay */
+        /* Welcome Screen */
         .welcome-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #060913;
+            background: #080c09;
             z-index: 100;
             display: flex;
             flex-direction: column;
@@ -64,6 +64,7 @@
         .welcome-box {
             text-align: center;
             animation: pulseGlow 2s infinite alternate;
+            padding: 0 20px;
         }
         .welcome-title {
             color: #fff;
@@ -73,20 +74,20 @@
             letter-spacing: 1px;
         }
         .enter-btn {
-            background: linear-gradient(135deg, #00dfd8 0%, #7928ca 100%);
+            background: linear-gradient(135deg, #e11d48 0%, #16a34a 100%);
             color: #fff;
             border: none;
             padding: 18px 50px;
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 0 30px rgba(0, 223, 216, 0.4);
+            box-shadow: 0 0 30px rgba(225, 29, 72, 0.5);
             transition: all 0.4s ease;
         }
         .enter-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(121, 40, 202, 0.7);
+            box-shadow: 0 0 40px rgba(22, 163, 74, 0.8);
         }
 
         /* Music Floating Controller */
@@ -114,19 +115,19 @@
             transform: translateY(-2px);
         }
 
-        /* 3D Glassmorphism Luxury Card */
+        /* Glassmorphism Card */
         .card {
             position: relative;
             width: 420px;
             padding: 50px 35px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 32px;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
             z-index: 1;
             transform-style: preserve-3d;
             perspective: 1000px;
@@ -140,11 +141,11 @@
         }
         .card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(255, 0, 127, 0.15), 0 30px 60px rgba(0, 0, 0, 0.6);
-            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 40px 80px rgba(22, 163, 74, 0.25), 0 30px 60px rgba(0, 0, 0, 0.7);
+            border-color: rgba(225, 29, 72, 0.4);
         }
 
-        /* Image Luxury Glow Frame */
+        /* Profile Glow Ring */
         .profile-wrapper {
             position: relative;
             width: 170px;
@@ -155,7 +156,7 @@
             content: '';
             position: absolute;
             inset: -4px;
-            background: linear-gradient(45deg, #ff007f, #7928ca, #00dfd8);
+            background: linear-gradient(45deg, #e11d48, #22c55e, #dc2626, #16a34a);
             border-radius: 50%;
             z-index: -1;
             animation: spinGlow 4s linear infinite;
@@ -164,11 +165,11 @@
             content: '';
             position: absolute;
             inset: -12px;
-            background: linear-gradient(45deg, #ff007f, #7928ca, #00dfd8);
+            background: linear-gradient(45deg, #e11d48, #22c55e);
             border-radius: 50%;
             z-index: -2;
             filter: blur(25px);
-            opacity: 0.65;
+            opacity: 0.7;
             animation: spinGlow 4s linear infinite;
         }
         .profile-pic {
@@ -176,52 +177,81 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #060913;
-            background: #121026;
+            border: 5px solid #080c09;
+            background: #111827;
         }
 
-        /* Luxury Typography */
+        /* Typography */
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
             color: #fff;
             margin-bottom: 15px;
             font-weight: 800;
             letter-spacing: -0.5px;
             line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         .gradient-text {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b, #a855f7, #00dfd8);
+            background: linear-gradient(45deg, #f43f5e, #22c55e, #ef4444, #4ade80);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s ease infinite;
+            animation: gradientShift 4s ease infinite;
         }
-        p {
-            color: #cbd5e1;
-            font-size: 1.02rem;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            font-weight: 300;
+        .dots {
+            white-space: nowrap;
         }
 
-        /* Luxury Celebrate Button */
+        /* Call Badge Styling */
+        .call-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.25), rgba(22, 163, 74, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.3);
+            animation: pulseGlow 2s infinite alternate;
+        }
+        .call-badge span {
+            color: #4ade80;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+        }
+
+        p {
+            color: #e2e8f0;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        /* Celebrate Button */
         .btn {
             position: relative;
-            background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%);
+            background: linear-gradient(135deg, #e11d48 0%, #16a34a 100%);
             color: white;
             border: none;
             padding: 16px 45px;
             font-size: 1.05rem;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 12px 25px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             letter-spacing: 0.5px;
         }
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 35px rgba(255, 0, 127, 0.6);
+            box-shadow: 0 20px 35px rgba(22, 163, 74, 0.6);
             letter-spacing: 1px;
         }
 
@@ -241,7 +271,6 @@
             100% { transform: scale(1.02); opacity: 1; }
         }
 
-        /* Confetti Overlay Canvas */
         canvas {
             position: absolute;
             top: 0;
@@ -258,8 +287,8 @@
 
     <div class="welcome-screen" id="welcomeScreen">
         <div class="welcome-box">
-            <h2 class="welcome-title">Someone Special Has a Birthday! 🤫</h2>
-            <button class="enter-btn" onclick="initiateCelebration()">Open Surprise ✨</button>
+            <h2 class="welcome-title">Welcome to the World of Passion & Determination! ✨🔥</h2>
+            <button class="enter-btn" onclick="initiateCelebration()">Reveal Tribute ✨</button>
         </div>
     </div>
 
@@ -281,11 +310,17 @@
 
     <div class="card" id="birthdayCard">
         <div class="profile-wrapper">
-            <img src="image.jpg" alt="Birthday Friend" class="profile-pic">
+            <img src="image.png" alt="Profile Image" class="profile-pic">
         </div>
-        <h1>Happy Birthday, <br><span class="gradient-text">ali!</span> 🎉</h1>
-        <p>Wishing you a day filled with laughter, premium vibes, and success in everything you execute. May this upcoming year unlock massive milestones for you!</p>
-        <button class="btn" onclick="triggerConfetti()">Celebrate! ✨</button>
+        <h1><span class="gradient-text">I'm Ehtasham</span> <span class="dots">🙂</span></h1>
+        
+        <!-- Highlighted Date Call -->
+        <div class="call-badge">
+            📢 Final Call: <span>27th September</span> 🔴🟢
+        </div>
+
+        <p>Standing firm with truth, courage, and pride! Imran Khan is a great leader whose vision inspires millions. Mera junoon, meri pehchan — Insaf aur haq ki awaz! 🔴🟢🔥</p>
+        <button class="btn" onclick="triggerConfetti()">Celebrate Hope! ✨</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -296,18 +331,15 @@
         const musicText = document.getElementById('music-text');
         const musicIcon = document.getElementById('music-icon');
 
-        // 🔥 Jaise hi user "Open Surprise" dabayega, Audio AUTO chalegi aur card reveal hoga!
         function initiateCelebration() {
             welcomeScreen.classList.add('hide');
             birthdayCard.classList.add('show');
             
-            // Auto play audio forcefully after interaction
             audio.play().catch(err => {
-                console.log("Autoplay failed setup, fallback active: ", err);
+                console.log("Audio play deferred: ", err);
             });
 
-            // Auto trigger magical burst
-            setTimeout(triggerConfetti, 500);
+            setTimeout(triggerConfetti, 400);
         }
 
         function triggerConfetti() {
@@ -316,18 +348,18 @@
 
             (function frame() {
                 confetti({
-                    particleCount: 5,
+                    particleCount: 6,
                     angle: 60,
-                    spread: 60,
+                    spread: 65,
                     origin: { x: 0, y: 0.85 },
-                    colors: ['#ff007f', '#7928ca', '#00dfd8', '#ff4b2b']
+                    colors: ['#e11d48', '#16a34a', '#ffffff', '#22c55e', '#dc2626']
                 });
                 confetti({
-                    particleCount: 5,
+                    particleCount: 6,
                     angle: 120,
-                    spread: 60,
+                    spread: 65,
                     origin: { x: 1, y: 0.85 },
-                    colors: ['#ff007f', '#7928ca', '#00dfd8', '#ff4b2b']
+                    colors: ['#e11d48', '#16a34a', '#ffffff', '#22c55e', '#dc2626']
                 });
 
                 if (Date.now() < end) {
@@ -336,7 +368,6 @@
             }());
         }
 
-        // Manual Controller Settings
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
